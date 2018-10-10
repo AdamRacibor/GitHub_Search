@@ -6,7 +6,7 @@ const autoprefixer = require("autoprefixer");
 const saveCopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    entry: './src/js/index.js',
+    entry: ['@babel/polyfill', './src/js/index.js'],
     output: {
         filename: 'js/bundle.js',
         path: path.resolve(__dirname, './dist')
@@ -22,6 +22,16 @@ module.exports = {
                     fallback: "style-loader",
                     use: ["css-loader","postcss-loader","sass-loader"]
                 })
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
             }
         ]
     },

@@ -49,6 +49,14 @@ $phone_breakpoint: 576px;
     }
 }
 
+.hidden {
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -72,8 +80,121 @@ $phone_breakpoint: 576px;
     }
 }
 
-.header {
+.nav {
     display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    padding: 20px 10px;
+    @include desktop {
+        padding: 20px 30px;
+    }
+    .back-btn {
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: 1px solid #000000;
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+        &__icon {
+            width: 10px;
+            height: auto;
+        }
+    }
+    .like-btn {
+        position: absolute;
+        right: 10px;
+        top: 20px;
+        width: 35px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        @include desktop {
+            top: 20px;
+            right: 30px;
+        }
+        .like-btn__icon {
+            fill: #E74C3C;
+        }
+    }
+}
+
+.likes {
+    flex-direction: column;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    padding: 40px 30px;
+    padding-bottom: 80px;
+    background-color: #ffffff;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    @include desktop {
+        width: 400px;
+        right: 0;
+    }
+    &__close-btn {
+        align-self: flex-end;
+        width: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    &__text {
+        text-align: center;
+        font-size: 1.1em;
+    }
+    .small-account {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 20px;
+        padding: 5px 0;
+        border-bottom: 1px solid #707070;
+        @include phone {
+            width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @include desktop {
+            width: 100%;
+        }
+        &__info {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        &__avatar {
+            width: 50px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+        &__name {
+            margin-left: 15px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+        &__btn {
+            width: 30px;
+            background: none;
+            border: none;
+        }
+        &__like {
+            width: 100%;
+            height: auto;
+            fill: #E74C3C;
+            cursor: pointer;
+        }
+    }
+    &__btn-more {
+        @extend %button-style;
+        margin-bottom: 0;
+    }
+}
+
+.header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -141,5 +262,172 @@ $phone_breakpoint: 576px;
     }
     &__btn {
         @extend %button-style;
+    }
+}
+
+.search-section {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        &__label {
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            @include phone {
+                font-size: 2em;
+            }
+        }
+        &__input {
+            width: 100%;
+            height: 35px;
+            padding: 0 10px;
+            border-radius: 10px;
+            background: none;
+            margin-top: 20px;
+            border: 1px solid #000000;
+            @include phone {
+                width: 400px;
+                height: 40px;
+            }
+        }
+        &__btn {
+            @extend %button-style;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.result-section {
+    align-items: center;
+    flex-direction: column;
+    .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 250px;
+        margin-top: 40px;
+        padding: 20px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        @include phone {
+            width: 300px;
+            padding: 40px;
+        }
+        &__img {
+            width: 130px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            @include phone {
+                width: 140px;
+            }
+        }
+        &__name {
+            text-align: center;
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            @include phone {
+                font-size: 1.7em;
+            }
+        }
+        &__text {
+            width: 100%;
+            font-size: 1.1em;
+            margin: 3px 0;
+            text-align: center;
+            @include phone {
+                font-size: 1.2em;
+            }
+        }
+        &__link {
+            text-decoration: none;
+            font-weight: bold;
+        }
+        &__icon {
+            width: 40px;
+            height: auto;
+            margin: 0 auto;
+            margin-top: 25px;
+            transition: fill 0.3s linear;
+            @include phone {
+                width: 50px;
+            }
+            &:hover {
+                fill: #E74C3C;
+                cursor: pointer;
+            }
+        }
+    }
+    &__heading {
+        font-size: 1.7em;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 10px;
+    }
+    .repo-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 30px;
+        @include phone {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        @include tablet {
+            justify-content: flex-start;
+        }
+    }
+    .repo {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 250px;
+        min-height: 160px;
+        margin: 10px 0;
+        padding: 15px;
+        font-size: 1.1em;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        @include phone {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        &__title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        &__desc {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 0.85em;
+        }
+        &__link {
+            font-weight: bold;
+            text-decoration: none;
+        }
+    }
+    .repo-navigation {
+        margin-bottom: 30px;
+        &__number {
+            font-size: 1.1em;
+            margin: 0 5px;
+            cursor: pointer;
+            &--active {
+                font-weight: bold;
+            }
+        }
     }
 }
