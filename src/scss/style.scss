@@ -265,6 +265,21 @@ $phone_breakpoint: 576px;
     }
 }
 
+.loading {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    &__img {
+        width: 120px;
+        height: auto;
+        animation-name: loading-animation;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+}
+
 .search-section {
     justify-content: center;
     align-items: center;
@@ -510,5 +525,13 @@ $phone_breakpoint: 576px;
                 font-weight: bold;
             }
         }
+    }
+}
+
+@keyframes loading-animation {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(-360deg);
     }
 }

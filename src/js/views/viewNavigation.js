@@ -5,10 +5,10 @@ export const changeSection = (startPoint, endPoint = lastVisitSection) => {
     if(endPoint === 'header') {
         elements.backBtn.classList.add('hidden');
     }
-    document.querySelector(`.${startPoint}-section`).classList.toggle('show');
+    document.querySelector(`.${startPoint}-section`).classList.toggle('flex');
     document.querySelector(`.${startPoint}-section`).classList.toggle('hidden');
     document.querySelector(`.${endPoint}-section`).classList.toggle('hidden');
-    document.querySelector(`.${endPoint}-section`).classList.toggle('show');
+    document.querySelector(`.${endPoint}-section`).classList.toggle('flex');
     if(endPoint !== "header") {
         elements.backBtn.classList.remove('hidden');
     }
