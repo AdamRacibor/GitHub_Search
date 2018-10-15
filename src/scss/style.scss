@@ -194,7 +194,7 @@ $phone_breakpoint: 576px;
     }
 }
 
-.header {
+.header-section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -300,6 +300,87 @@ $phone_breakpoint: 576px;
         &__btn {
             @extend %button-style;
             margin-bottom: 0;
+        }
+    }
+}
+
+.profils-section {
+    flex-direction: column;
+    padding: 40px 0;
+    &__heading {
+        font-size: 1.7em;
+        text-align: center;
+    }
+    .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        @include tablet {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+    }
+    .profil-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 250px;
+        margin-top: 40px;
+        padding: 20px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        @include phone {
+            width: 300px;
+            padding: 40px;
+        }
+        &__img {
+            width: 130px;
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            @include phone {
+                width: 140px;
+            }
+        }
+        &__name {
+            text-align: center;
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            @include phone {
+                font-size: 1.7em;
+            }
+        }
+        &__text {
+            width: 100%;
+            font-size: 1.1em;
+            margin: 3px 0;
+            text-align: center;
+            @include phone {
+                font-size: 1.2em;
+            }
+        }
+        &__link {
+            text-decoration: none;
+            font-weight: bold;
+        }
+        &__icon {
+            width: 40px;
+            height: auto;
+            margin: 0 auto;
+            margin-top: 25px;
+            transition: fill 0.3s linear;
+            @include phone {
+                width: 50px;
+            }
+            &:hover {
+                fill: #E74C3C;
+                cursor: pointer;
+            }
         }
     }
 }
