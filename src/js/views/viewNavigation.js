@@ -16,6 +16,6 @@ export const changeSection = (startPoint, endPoint = lastVisitSection) => {
 };
 
 export const returnActiveSection = () => {
-    const activeSection = document.querySelector('section.show').dataset.name;
+    const activeSection = document.querySelector('.flex').dataset.name;
     return activeSection;
 }

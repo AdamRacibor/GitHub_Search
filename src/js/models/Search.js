@@ -6,7 +6,7 @@ export default class Search {
     }
     async getProfil() {
         try {
-            const result = await axios(`https://api.github.com/search/users?q=${this.query}`);
+            const result = await axios(`https://api.github.com/search/users?q=${this.query}&per_page=100`);
             this.data = result.data.items;
         } catch(err) {
             console.log(err);
