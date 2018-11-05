@@ -1,7 +1,7 @@
 import { elements } from './base';
 
-let lastVisitSection;
-export const changeSection = (startPoint, endPoint = lastVisitSection) => {
+const lastVisitSections = [];
+export const changeSection = (startPoint, endPoint = lastVisitSections[lastVisitSections.length - 1]) => {
     if(endPoint === 'header') {
         elements.backBtn.classList.add('hidden');
     }
@@ -12,10 +12,16 @@ export const changeSection = (startPoint, endPoint = lastVisitSection) => {
     if(endPoint !== "header") {
         elements.backBtn.classList.remove('hidden');
     }
-    lastVisitSection =  startPoint;
+    if(startPoint !== 'loading') lastVisitSections.push(startPoint);
+    console.log(startPoint, endPoint, lastVisitSections);
+};
+
+export const removeSectionFromHis = () => {
+    lastVisitSections.splice(-2,2);
+    console.log(lastVisitSections);
 };
 
 export const returnActiveSection = () => {
     const activeSection = document.querySelector('.flex').dataset.name;
     return activeSection;
-}
+};

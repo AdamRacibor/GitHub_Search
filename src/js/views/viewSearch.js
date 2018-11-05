@@ -1,7 +1,7 @@
 import { elements } from './base';
 
-const generateProfilCard = (data, cardID) => {
-    const profilCardTeamplat = `
+const generateCard = (data, cardID) => {
+    const cardTemplat = `
     <div class="profil-card" data-cardID="${cardID}">
         <figure>
             <img class="profil-card__img" src="${data.avatar_url}" alt="">
@@ -15,9 +15,9 @@ const generateProfilCard = (data, cardID) => {
                 transform="translate(2916.601 1874.995)" /></svg>
     </div>
     `;
-    return profilCardTeamplat;
+    return cardTemplat;
 };
 
 export const showCard = (data, cardID) => {
-    elements.profilsCards.insertAdjacentHTML('beforeend', generateProfilCard(data, cardID));
+    elements.profilsCards.insertAdjacentHTML('beforeend', generateCard(data, cardID));
 }
