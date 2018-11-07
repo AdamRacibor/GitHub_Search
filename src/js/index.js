@@ -97,5 +97,6 @@ elements.repoNav.addEventListener('click', (e, limit = 8) => {
         viewNavigation.removeAllChild(elements.repos);
         viewNavigation.changeActivePage(e.target.dataset.number-1);
         viewProfil.showRepos((pageNumber*limit)-limit, (pageNumber*limit));
+        window.scrollTo(0,window.scrollTop);
     }
 });
