@@ -25,6 +25,7 @@ const controlerSearch = async () => {
         } catch {
             console.log("Error");
         }
+        viewNavigation.removeAllChild(elements.profilsCards);
         viewNavigation.changeSection('loading', 'profils');
         const profils = status.search.data;
         profils.forEach((profil, index) => {
@@ -36,21 +37,33 @@ const controlerSearch = async () => {
 const controlerProfil = async (link, person) => {
     status.profil = new Profil(link, person);
     viewNavigation.changeSection('profils', 'loading');
+
     try {
         await status.profil.getRepo();
     } catch {
         console.log("Error");
     }
+
+    //Clear profil
+    viewNavigation.removeAllChild(elements.cardBox);
+    viewNavigation.removeAllChild(elements.repos);
+    viewNavigation.removeAllChild(elements.repoNav);
+    viewProfil.reposArray.splice(0, viewProfil.reposArray.length);
+
     viewNavigation.changeSection('loading', 'result');
+    //Repos action
     status.profil.reposCount();
     viewProfil.showProfilCard(person, status.profil.reposCount);
     status.profil.repos.forEach((repo) => {
-        viewProfil.showReposCards(repo);
+        viewProfil.saveReposCard(repo);
     });
+    //Page action
+    status.profil.calcNumberOfPages();
+    viewProfil.showPages(status.profil.pages);
+    viewProfil.showRepos();
 };
 
 //Events
-
 //navigation
 elements.headerBtn.addEventListener('click', () => {
     viewNavigation.changeSection('header', 'search');
@@ -59,13 +72,14 @@ elements.headerBtn.addEventListener('click', () => {
 elements.backBtn.addEventListener('click', () => {
     const activeSectionName = viewNavigation.returnActiveSection();
     viewNavigation.changeSection(activeSectionName,);
-    viewNavigation.removeSectionFromHis();
+    viewNavigation.removeSectionFromHist();
 });
 
 //search
 elements.searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
     controlerSearch();
+    elements.searchForm.reset();
 });
 
 //profil
@@ -74,5 +88,14 @@ elements.profilsCards.addEventListener('click', (e) => {
         const link = status.search.data[e.target.dataset.cardid].repos_url;
         const person = status.search.data[e.target.dataset.cardid];
         controlerProfil(link, person);
+    }
+});
+
+elements.repoNav.addEventListener('click', (e, limit = 8) => {
+    if(e.target.classList.contains('repo-navigation__number')) {
+        const pageNumber = e.target.dataset.number;
+        viewNavigation.removeAllChild(elements.repos);
+        viewNavigation.changeActivePage(e.target.dataset.number-1);
+        viewProfil.showRepos((pageNumber*limit)-limit, (pageNumber*limit));
     }
 });

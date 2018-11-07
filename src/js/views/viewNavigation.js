@@ -13,15 +13,29 @@ export const changeSection = (startPoint, endPoint = lastVisitSections[lastVisit
         elements.backBtn.classList.remove('hidden');
     }
     if(startPoint !== 'loading') lastVisitSections.push(startPoint);
-    console.log(startPoint, endPoint, lastVisitSections);
 };
 
-export const removeSectionFromHis = () => {
+export const removeSectionFromHist = () => {
     lastVisitSections.splice(-2,2);
-    console.log(lastVisitSections);
 };
 
 export const returnActiveSection = () => {
     const activeSection = document.querySelector('.flex').dataset.name;
     return activeSection;
+};
+
+export const removeAllChild = (node) => {
+    while(node.firstChild) {
+        node.removeChild(node.firstChild);
+    }
+};
+
+export const changeActivePage = (current) => {
+    const allPages = document.querySelectorAll('.repo-navigation__number');
+    allPages.forEach((page) => {
+        if(page.classList.contains('repo-navigation__number--active')) {
+            page.classList.remove('repo-navigation__number--active');
+        }
+    });
+    allPages[current].classList.add('repo-navigation__number--active');
 };

@@ -4,6 +4,7 @@ export const elements = {
     searchForm: document.querySelector('#search-form'),
     query: document.querySelector('#query'),
     profilsCards: document.querySelector('#profilsCards'),
-    profil: document.querySelector('#profil'),
+    cardBox: document.querySelector('#card'),
     repos: document.querySelector('#repos'),
+    repoNav: document.querySelector('#repoNav'),
 };

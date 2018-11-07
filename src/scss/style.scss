@@ -564,6 +564,7 @@ $phone_breakpoint: 576px;
             margin: 0 5px;
             cursor: pointer;
             &--active {
+                font-size: 1.2em;
                 font-weight: bold;
             }
         }

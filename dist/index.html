@@ -11,7 +11,7 @@
 
 <body>
     <nav class="nav">
-        <button type="button" class="back-btn hidden" title="Powrót">
+        <button type="button" id="backBtn" class="back-btn hidden" title="Powrót">
             <svg class="back-btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="2055.418 1221.619 17.939 30.602">
                 <path d="M23.022,5.035a2.811,2.811,0,0,1,0,4.158L13.136,19.5l9.885,10.31a2.805,2.805,0,0,1,0,4.153,3.135,3.135,0,0,1-4.261,0C17.658,32.895,6.884,21.58,6.884,21.58a2.887,2.887,0,0,1,0-4.158S17.658,6.112,18.761,5.035A3.132,3.132,0,0,1,23.022,5.035Z"
                     transform="translate(2049.418 1217.42)" /></svg>
@@ -73,7 +73,7 @@
         </div>
         <button type="button" class="likes__btn-more">Więcej</button>
     </div>
-    <header class="header flex">
+    <header class="header-section flex">
         <div class="container">
             <h1 class="logo">
                 <a href="index.html">
@@ -86,84 +86,36 @@
                 <img class="cats-img" src="img/cats/linktocat.png" alt="Linktocat">
                 <img class="cats-img" src="img/cats/labcat.png" alt="Labcat">
             </div>
-            <p class="header__text">GitHub search jest prostą stroną wykorzystującą GitHub Api.
+            <p class="header-section__text">GitHub search jest prostą stroną wykorzystującą GitHub Api.
                 Dzięki niej w szybki i łatwy sposób znajdziesz interesujące Cie profile
                 oraz repozytoria Twoich ulubionych twórców.</p>
-            <button class="header__btn">Zaczynajmy !</button>
+            <button id="headerBtn" class="header-section__btn">Zaczynajmy !</button>
         </div>
     </header>
     <main class="container">
-        <section class="search-section hidden">
-            <form class="form">
+        <div class="loading-section hidden" data-name="loading">
+            <svg class="loading-section__img" xmlns="http://www.w3.org/2000/svg" viewBox="4012 421 113.59 99.539">
+                <path d="M.685,51.575h14.4V50.33A49.65,49.65,0,1,1,34.116,90.789l8.534-9.128A37.352,37.352,0,1,0,27.488,50.33v1.244H43.705L22.5,75.209Z"
+                    transform="translate(4011.315 419.201)" /></svg>
+        </div>
+        <section class="search-section hidden" data-name="search">
+            <form id="search-form" class="form">
                 <label class="form__label" for="nick">Wpisz nick użytkownika w podane pole</label>
-                <input class="form__input" id="nick" type="text">
+                <input id="query" class="form__input" id="nick" type="text" required>
                 <button type="submit" class="form__btn">Szukaj</button>
             </form>
         </section>
-        <section class="result-section hidden">
-            <div class="card">
-                <figure>
-                    <img class="card__img" src="img/avatar.jpg" alt="">
-                    <figcaption class="card__name">Adam Lifo</figcaption>
-                </figure>
-                <span class="card__text">Nick: Danroxx</span>
-                <span class="card__text">Liczba repozytoriów: 10</span>
-                <span class="card__text">Link: <a class="card__link" href="https://github.com/Danroxx">github.com/Danroxx</a></span>
-                <svg class="card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="2918 1878 64.813 52.735">
-                    <path d="M60.9,7.34a17.177,17.177,0,0,0-22.815,0l-4.277,3.926L29.527,7.34a17.172,17.172,0,0,0-22.812,0,15.683,15.683,0,0,0,0,23.535L33.807,55.74,60.9,30.875A15.688,15.688,0,0,0,60.9,7.34Z"
-                        transform="translate(2916.601 1874.995)" /></svg>
+        <section class="profils-section hidden" data-name="profils">
+            <h2 class="profils-section__heading">Wyniki wyszukiwania</h2>
+            <div id="profilsCards" class="row"></div>
+        </section>
+        <section class="result-section hidden" data-name="result">
+            <div id="card" class="card-wrapper">
+
             </div>
             <h2 class="result-section__heading">Repozytoria twórcy</h2>
-            <div class="repo-wrapper">
-                <div class="repo">
-                    <span class="repo__title">Kalkulator zdrowia</span>
-                    <span class="repo__tech">Java Script</span>
-                    <span class="repo__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies
-                        nisi non erat facilisis, non tincidunt metus efficitur.</span>
-                    <a class="repo__link" href="https://github.com/Danroxx/Kalkulator-zdrowia" target="_blank">Link</a>
-                </div>
-                <div class="repo">
-                    <span class="repo__title">Kalkulator zdrowia</span>
-                    <span class="repo__tech">Java Script</span>
-                    <span class="repo__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies
-                        nisi non erat facilisis, non tincidunt metus efficitur.</span>
-                    <a class="repo__link" href="https://github.com/Danroxx/Kalkulator-zdrowia" target="_blank">Link</a>
-                </div>
-                <div class="repo">
-                    <span class="repo__title">Kalkulator zdrowia</span>
-                    <span class="repo__tech">Java Script</span>
-                    <span class="repo__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies
-                        nisi non erat facilisis, non tincidunt metus efficitur.</span>
-                    <a class="repo__link" href="https://github.com/Danroxx/Kalkulator-zdrowia" target="_blank">Link</a>
-                </div>
-                <div class="repo">
-                    <span class="repo__title">Kalkulator zdrowia</span>
-                    <span class="repo__tech">Java Script</span>
-                    <span class="repo__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies
-                        nisi non erat facilisis, non tincidunt metus efficitur.</span>
-                    <a class="repo__link" href="https://github.com/Danroxx/Kalkulator-zdrowia" target="_blank">Link</a>
-                </div>
-                <div class="repo">
-                    <span class="repo__title">Kalkulator zdrowia</span>
-                    <span class="repo__tech">Java Script</span>
-                    <span class="repo__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies
-                        nisi non erat facilisis, non tincidunt metus efficitur.</span>
-                    <a class="repo__link" href="https://github.com/Danroxx/Kalkulator-zdrowia" target="_blank">Link</a>
-                </div>
-                <div class="repo">
-                    <span class="repo__title">Kalkulator zdrowia</span>
-                    <span class="repo__tech">Java Script</span>
-                    <span class="repo__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies
-                        nisi non erat facilisis, non tincidunt metus efficitur.</span>
-                    <a class="repo__link" href="https://github.com/Danroxx/Kalkulator-zdrowia" target="_blank">Link</a>
-                </div>
-            </div>
-            <div class="repo-navigation">
-                <span class="repo-navigation__number repo-navigation__number--active">1</span>
-                <span class="repo-navigation__number">2</span>
-                <span class="repo-navigation__number">3</span>
-                <span class="repo-navigation__number">4</span>
-            </div>
+            <div id="repos" class="repo-wrapper"></div>
+            <div id="repoNav" class="repo-navigation"></div>
         </section>
     </main>
 <script type="text/javascript" src="js/bundle.js"></script></body>

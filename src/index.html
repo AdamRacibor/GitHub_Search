@@ -101,7 +101,7 @@
         <section class="search-section hidden" data-name="search">
             <form id="search-form" class="form">
                 <label class="form__label" for="nick">Wpisz nick użytkownika w podane pole</label>
-                <input id="query" class="form__input" id="nick" type="text">
+                <input id="query" class="form__input" id="nick" type="text" required>
                 <button type="submit" class="form__btn">Szukaj</button>
             </form>
         </section>
@@ -109,15 +109,13 @@
             <h2 class="profils-section__heading">Wyniki wyszukiwania</h2>
             <div id="profilsCards" class="row"></div>
         </section>
-        <section id="profil" class="result-section hidden" data-name="result">
+        <section class="result-section hidden" data-name="result">
+            <div id="card" class="card-wrapper">
+
+            </div>
             <h2 class="result-section__heading">Repozytoria twórcy</h2>
             <div id="repos" class="repo-wrapper"></div>
-            <div class="repo-navigation">
-                <span class="repo-navigation__number repo-navigation__number--active">1</span>
-                <span class="repo-navigation__number">2</span>
-                <span class="repo-navigation__number">3</span>
-                <span class="repo-navigation__number">4</span>
-            </div>
+            <div id="repoNav" class="repo-navigation"></div>
         </section>
     </main>
 </body>
