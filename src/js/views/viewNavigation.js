@@ -2,9 +2,8 @@ import { elements } from './base';
 
 const lastVisitSections = [];
 export const changeSection = (startPoint, endPoint = lastVisitSections[lastVisitSections.length - 1]) => {
-    if(endPoint === 'header') {
-        elements.backBtn.classList.add('hidden');
-    }
+    if(endPoint === 'header') elements.backBtn.classList.add('hidden');
+    if(endPoint === "loading" || startPoint === "loading") toggleMainNav();
     document.querySelector(`.${startPoint}-section`).classList.toggle('flex');
     document.querySelector(`.${startPoint}-section`).classList.toggle('hidden');
     document.querySelector(`.${endPoint}-section`).classList.toggle('hidden');
@@ -12,7 +11,13 @@ export const changeSection = (startPoint, endPoint = lastVisitSections[lastVisit
     if(endPoint !== "header") {
         elements.backBtn.classList.remove('hidden');
     }
+    if(endPoint !== "header") elements.backBtn.classList.remove('hidden');
     if(startPoint !== 'loading') lastVisitSections.push(startPoint);
+};
+
+export const toggleMainNav = () => {
+    elements.mainNav.classList.toggle('flex');
+    elements.mainNav.classList.toggle('hidden');
 };
 
 export const removeSectionFromHist = () => {
@@ -20,8 +25,9 @@ export const removeSectionFromHist = () => {
 };
 
 export const returnActiveSection = () => {
-    const activeSection = document.querySelector('.flex').dataset.name;
-    return activeSection;
+    const activeSection = document.querySelector('section.flex') || document.querySelector('div.flex');
+    const data = activeSection.dataset.name;
+    return data;
 };
 
 export const removeAllChild = (node) => {

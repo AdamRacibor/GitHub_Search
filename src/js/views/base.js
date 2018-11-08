@@ -1,4 +1,5 @@
 export const elements = {
+    mainNav: document.querySelector('#mainNav'),
     backBtn: document.querySelector("#backBtn"),
     headerBtn: document.querySelector('#headerBtn'),
     searchForm: document.querySelector('#search-form'),
@@ -7,4 +8,5 @@ export const elements = {
     cardBox: document.querySelector('#card'),
     repos: document.querySelector('#repos'),
     repoNav: document.querySelector('#repoNav'),
+    likesTile: document.querySelector('#likes-tile'),
 };
