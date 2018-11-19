@@ -8,5 +8,8 @@ export const elements = {
     cardBox: document.querySelector('#card'),
     repos: document.querySelector('#repos'),
     repoNav: document.querySelector('#repoNav'),
-    likesTile: document.querySelector('#likes-tile'),
+    likesTile: document.querySelector('#likesTile'),
+    likesNavButton: document.querySelector('#likesNavButton'),
+    closeLikesBtn: document.querySelector('#closeLikesBtn'),
+    likeList: document.querySelector('#likeList'),
 };

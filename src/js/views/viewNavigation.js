@@ -25,7 +25,7 @@ export const removeSectionFromHist = () => {
 };
 
 export const returnActiveSection = () => {
-    const activeSection = document.querySelector('section.flex') || document.querySelector('div.flex');
+    const activeSection = document.querySelector('section.flex') || document.querySelector('div.loading-section');
     const data = activeSection.dataset.name;
     return data;
 };

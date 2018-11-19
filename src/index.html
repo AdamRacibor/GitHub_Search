@@ -16,63 +16,22 @@
                 <path d="M23.022,5.035a2.811,2.811,0,0,1,0,4.158L13.136,19.5l9.885,10.31a2.805,2.805,0,0,1,0,4.153,3.135,3.135,0,0,1-4.261,0C17.658,32.895,6.884,21.58,6.884,21.58a2.887,2.887,0,0,1,0-4.158S17.658,6.112,18.761,5.035A3.132,3.132,0,0,1,23.022,5.035Z"
                     transform="translate(2049.418 1217.42)" /></svg>
         </button>
-        <button type="button" class="like-btn" title="Lista polubień">
+        <button id="likesNavButton" type="button" class="like-btn" title="Lista polubień">
             <svg class="like-btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="2918 1878 64.813 52.735">
                 <path d="M60.9,7.34a17.177,17.177,0,0,0-22.815,0l-4.277,3.926L29.527,7.34a17.172,17.172,0,0,0-22.812,0,15.683,15.683,0,0,0,0,23.535L33.807,55.74,60.9,30.875A15.688,15.688,0,0,0,60.9,7.34Z"
                     transform="translate(2916.601 1874.995)" /></svg>
         </button>
+        <div id="likesTile" class="likes hidden">
+            <button id="closeLikesBtn" class="close-btn" type="button" title="Zamknij ulubione">
+                <svg class="close-btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="1872.891 41.603 18.957 20.974">
+                    <path d="M23.547,25.065a2.418,2.418,0,0,1-3.422,0l-5.346-6.11L9.433,25.063A2.42,2.42,0,0,1,6.011,21.64l5.562-6.352L6.009,8.932A2.42,2.42,0,0,1,9.431,5.51l5.348,6.112L20.125,5.51a2.42,2.42,0,0,1,3.422,3.422l-5.562,6.356,5.562,6.352A2.421,2.421,0,0,1,23.547,25.065Z"
+                        transform="translate(1867.592 36.803)" /></svg>
+            </button>
+            <span class="likes__text">Ostatnio polubione</span>
+            <ul id="likeList" class="profils-list"></ul>
+            <button type="button" class="likes__btn-more">Więcej</button>
+        </div>
     </nav>
-    <div id="likesTile" class="likes hidden">
-        <svg class="likes__close-btn" xmlns="http://www.w3.org/2000/svg" viewBox="1872.891 41.603 18.957 20.974">
-            <path d="M23.547,25.065a2.418,2.418,0,0,1-3.422,0l-5.346-6.11L9.433,25.063A2.42,2.42,0,0,1,6.011,21.64l5.562-6.352L6.009,8.932A2.42,2.42,0,0,1,9.431,5.51l5.348,6.112L20.125,5.51a2.42,2.42,0,0,1,3.422,3.422l-5.562,6.356,5.562,6.352A2.421,2.421,0,0,1,23.547,25.065Z"
-                transform="translate(1867.592 36.803)" /></svg>
-        <span class="likes__text">Ostatnio polubione</span>
-        <div class="small-account">
-            <figure class="small-account__info">
-                <img class="small-account__avatar" src="img/avatar.jpg" alt="Adam Lifo">
-                <figcaption class="small-account__name">Danroxx</figcaption>
-            </figure>
-            <button type="button" class="small-account__btn">
-                <svg class="small-account__like" xmlns="http://www.w3.org/2000/svg" viewBox="2918 1878 64.813 52.735">
-                    <path d="M60.9,7.34a17.177,17.177,0,0,0-22.815,0l-4.277,3.926L29.527,7.34a17.172,17.172,0,0,0-22.812,0,15.683,15.683,0,0,0,0,23.535L33.807,55.74,60.9,30.875A15.688,15.688,0,0,0,60.9,7.34Z"
-                        transform="translate(2916.601 1874.995)" /></svg>
-            </button>
-        </div>
-        <div class="small-account">
-            <figure class="small-account__info">
-                <img class="small-account__avatar" src="img/avatar.jpg" alt="Adam Lifo">
-                <figcaption class="small-account__name">Danroxx</figcaption>
-            </figure>
-            <button type="button" class="small-account__btn">
-                <svg class="small-account__like" xmlns="http://www.w3.org/2000/svg" viewBox="2918 1878 64.813 52.735">
-                    <path d="M60.9,7.34a17.177,17.177,0,0,0-22.815,0l-4.277,3.926L29.527,7.34a17.172,17.172,0,0,0-22.812,0,15.683,15.683,0,0,0,0,23.535L33.807,55.74,60.9,30.875A15.688,15.688,0,0,0,60.9,7.34Z"
-                        transform="translate(2916.601 1874.995)" /></svg>
-            </button>
-        </div>
-        <div class="small-account">
-            <figure class="small-account__info">
-                <img class="small-account__avatar" src="img/avatar.jpg" alt="Adam Lifo">
-                <figcaption class="small-account__name">Danroxx</figcaption>
-            </figure>
-            <button type="button" class="small-account__btn">
-                <svg class="small-account__like" xmlns="http://www.w3.org/2000/svg" viewBox="2918 1878 64.813 52.735">
-                    <path d="M60.9,7.34a17.177,17.177,0,0,0-22.815,0l-4.277,3.926L29.527,7.34a17.172,17.172,0,0,0-22.812,0,15.683,15.683,0,0,0,0,23.535L33.807,55.74,60.9,30.875A15.688,15.688,0,0,0,60.9,7.34Z"
-                        transform="translate(2916.601 1874.995)" /></svg>
-            </button>
-        </div>
-        <div class="small-account">
-            <figure class="small-account__info">
-                <img class="small-account__avatar" src="img/avatar.jpg" alt="Adam Lifo">
-                <figcaption class="small-account__name">Danroxx</figcaption>
-            </figure>
-            <button type="button" class="small-account__btn">
-                <svg class="small-account__like" xmlns="http://www.w3.org/2000/svg" viewBox="2918 1878 64.813 52.735">
-                    <path d="M60.9,7.34a17.177,17.177,0,0,0-22.815,0l-4.277,3.926L29.527,7.34a17.172,17.172,0,0,0-22.812,0,15.683,15.683,0,0,0,0,23.535L33.807,55.74,60.9,30.875A15.688,15.688,0,0,0,60.9,7.34Z"
-                        transform="translate(2916.601 1874.995)" /></svg>
-            </button>
-        </div>
-        <button type="button" class="likes__btn-more">Więcej</button>
-    </div>
     <header class="header-section flex">
         <div class="container">
             <h1 class="logo">
@@ -110,14 +69,11 @@
             <div id="profilsCards" class="row"></div>
         </section>
         <section class="result-section hidden" data-name="result">
-            <div id="card" class="card-wrapper">
-
-            </div>
+            <div id="card" class="card-wrapper"></div>
             <h2 class="result-section__heading">Repozytoria twórcy</h2>
             <div id="repos" class="repo-wrapper"></div>
             <div id="repoNav" class="repo-navigation"></div>
         </section>
     </main>
 </body>
-
 </html>

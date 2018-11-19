@@ -12,4 +12,9 @@ export default class Search {
             console.log(err);
         }
     }
+
+    returnData(githubID) {
+        const index = this.data.findIndex(el => el.id == githubID);
+        return this.data[index];
+    }
 }

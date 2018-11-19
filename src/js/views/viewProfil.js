@@ -10,8 +10,8 @@ export const showRepos = (start = 0, end = 8) => {
     });
 };
 
-export const showProfilCard = (person, repos) => {
-    elements.cardBox.insertAdjacentHTML('afterbegin', generateProfilCard(person, repos));
+export const showProfilCard = (person, repos, like) => {
+    elements.cardBox.insertAdjacentHTML('afterbegin', generateProfilCard(person, repos, like));
 };
 
 export const showPages = (count) => {
@@ -23,21 +23,23 @@ export const showPages = (count) => {
 
 export const reposArray = [];
 
-const generateProfilCard = (person, repos) => {
+const generateProfilCard = (person, repos, like) => {
     const profilCardtemplate = `
-        <div class="card">
-            <figure>
-                <img class="card__img" src="${person.avatar_url}" alt="">
-                <figcaption class="card__name">${person.login}</figcaption>
-            </figure>
-            <span class="card__text">ID: ${person.id}</span>
-            <span class="card__text">Punkty: ${person.score.toFixed(2)}</span>
-            <span class="card__text">Liczba repozytoriów: ${repos}</span>
-            <span class="card__text"><a class="card__link" href="${person.html_url}" target="blank_">Link</a></span>
+    <div class="card info" data-githubid="${person.id}">
+        <figure>
+            <img class="card__img" src="${person.avatar_url}" alt="">
+            <figcaption class="card__name">${person.login}</figcaption>
+        </figure>
+        <span class="card__text">ID: ${person.id}</span>
+        <span class="card__text">Punkty: ${person.score.toFixed(2)}</span>
+        <span class="card__text">Liczba repozytoriów: ${repos}</span>
+        <span class="card__text"><a class="card__link" href="${person.html_url}" target="blank_">Link</a></span>
+        <button class="card__btn btn-like ${like === true ? "like" : ""}" type="button">
             <svg class="card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="2918 1878 64.813 52.735">
                 <path d="M60.9,7.34a17.177,17.177,0,0,0-22.815,0l-4.277,3.926L29.527,7.34a17.172,17.172,0,0,0-22.812,0,15.683,15.683,0,0,0,0,23.535L33.807,55.74,60.9,30.875A15.688,15.688,0,0,0,60.9,7.34Z"
                 transform="translate(2916.601 1874.995)" /></svg>
-        </div>
+        </button>
+    </div>
     `;
     return profilCardtemplate;
 };
