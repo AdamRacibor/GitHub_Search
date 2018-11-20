@@ -29,10 +29,10 @@
             </button>
             <span class="likes__text">Ostatnio polubione</span>
             <ul id="likeList" class="profils-list"></ul>
-            <button type="button" class="likes__btn-more">Więcej</button>
+            <button id="moreBtn" type="button" class="likes__btn-more hidden">Więcej</button>
         </div>
     </nav>
-    <header class="header-section flex">
+    <header class="header-section flex" data-name="header">
         <div class="container">
             <h1 class="logo">
                 <a href="index.html">
@@ -73,6 +73,10 @@
             <h2 class="result-section__heading">Repozytoria twórcy</h2>
             <div id="repos" class="repo-wrapper"></div>
             <div id="repoNav" class="repo-navigation"></div>
+        </section>
+        <section class="likes-section hidden" data-name="likes">
+            <h2 class="likes-section__heading">Twoje polubienia</h2>
+            <div id="likeCards" class="row"></div>
         </section>
     </main>
 </body>

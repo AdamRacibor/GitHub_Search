@@ -13,6 +13,7 @@ export const changeSection = (startPoint, endPoint = lastVisitSections[lastVisit
     }
     if(endPoint !== "header") elements.backBtn.classList.remove('hidden');
     if(startPoint !== 'loading') lastVisitSections.push(startPoint);
+    if(lastVisitSections[lastVisitSections.length - 1] === endPoint) lastVisitSections.pop();
 };
 
 export const toggleMainNav = () => {
@@ -25,7 +26,7 @@ export const removeSectionFromHist = () => {
 };
 
 export const returnActiveSection = () => {
-    const activeSection = document.querySelector('section.flex') || document.querySelector('div.loading-section');
+    const activeSection = document.querySelector('section.flex') || document.querySelector('header.flex') || document.querySelector('div.loading-section');
     const data = activeSection.dataset.name;
     return data;
 };

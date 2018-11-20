@@ -1,16 +1,24 @@
 export default class Like {
     constructor() {
         this.likes = [];
+        this.likesHis = [];
     }
 
-    addLike(id, name, img, score, repos_url, html_url) {
-        const likePersonData = { id, name, img, score, repos_url, html_url };
+    getPerson(id) {
+        const person = this.likes.find((el) => {
+            return el.id == id;
+        });
+        return person;
+    }
+
+    addLike(id, login, avatar_url, score, repos_url, html_url) {
+        const likePersonData = { id, login, avatar_url, score, repos_url, html_url };
         this.likes.push(likePersonData);
         this.setLocalStorage();
     }
 
     removeLike(id) {
-        const index = this.likes.findIndex(el => el.id === id);
+        const index = this.likes.findIndex(el => el.id == id);
         this.likes.splice(index, 1);
         this.setLocalStorage();
     }
@@ -18,6 +26,16 @@ export default class Like {
     checkList(id) {
         return this.likes.some((el) => {
             return el.id == id;
+        });
+    }
+
+    addToLikesHis(like) {
+        this.likesHis.push(like);
+    }
+
+    getIndex(id) {
+        this.likesHis.findIndex((el) => {
+            el.id == id;
         });
     }
 

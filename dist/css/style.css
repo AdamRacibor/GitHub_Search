@@ -18,11 +18,34 @@
       width: 180px;
       height: 45px; } }
 
+.profils-section, .likes-section {
+  flex-direction: column;
+  padding: 40px 0; }
+
+.profils-section__heading, .likes-section__heading {
+  font-size: 1.7em;
+  text-align: center; }
+
+.profils-section .row, .likes-section .row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    .profils-section .row, .likes-section .row {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: flex-start; } }
+
 .hidden {
   display: none; }
 
 .flex {
   display: flex; }
+
+.like {
+  fill: #E74C3C; }
 
 * {
   margin: 0;
@@ -46,7 +69,6 @@
       width: 1200px; } }
 
 .nav {
-  display: flex;
   justify-content: space-between;
   position: fixed;
   width: 100%;
@@ -83,7 +105,9 @@
 .likes {
   flex-direction: column;
   position: fixed;
-  z-index: 10;
+  top: 0;
+  right: 0;
+  z-index: 20;
   width: 100%;
   padding: 40px 30px;
   padding-bottom: 80px;
@@ -93,23 +117,31 @@
     .likes {
       width: 400px;
       right: 0; } }
-  .likes__close-btn {
-    align-self: flex-end;
+  .likes .close-btn {
     width: 20px;
+    align-self: flex-end;
     background: none;
     border: none;
     cursor: pointer; }
+    .likes .close-btn__icon {
+      width: 20px; }
   .likes__text {
     text-align: center;
     font-size: 1.1em; }
+  .likes__msg {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 1.2em; }
   .likes .small-account {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     margin-top: 20px;
-    padding: 5px 0;
-    border-bottom: 1px solid #707070; }
+    padding: 15px 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
     @media screen and (min-width: 576px) {
       .likes .small-account {
         width: 400px;
@@ -123,23 +155,18 @@
       justify-content: flex-start;
       align-items: center; }
     .likes .small-account__avatar {
-      width: 50px;
+      width: 60px;
       height: auto;
       border-radius: 50%;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
     .likes .small-account__name {
       margin-left: 15px;
-      font-size: 1.1em;
+      font-size: 1.2em;
+      font-weight: bold;
       cursor: pointer; }
-    .likes .small-account__btn {
-      width: 30px;
-      background: none;
-      border: none; }
-    .likes .small-account__like {
-      width: 100%;
-      height: auto;
-      fill: #E74C3C;
-      cursor: pointer; }
+    .likes .small-account:hover {
+      cursor: pointer;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
   .likes__btn-more {
     margin-bottom: 0; }
 
@@ -255,84 +282,78 @@
     .search-section .form__btn {
       margin-bottom: 0; }
 
-.profils-section {
+.profils-section .profil-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  padding: 40px 0; }
-  .profils-section__heading {
-    font-size: 1.7em;
-    text-align: center; }
-  .profils-section .row {
+  width: 250px;
+  margin-top: 40px;
+  padding: 20px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  @media screen and (min-width: 576px) {
+    .profils-section .profil-card {
+      width: 300px;
+      padding: 40px; } }
+  .profils-section .profil-card figure {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%; }
-    @media screen and (min-width: 768px) {
-      .profils-section .row {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: flex-start; } }
-  .profils-section .profil-card {
-    display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 250px;
-    margin-top: 40px;
-    padding: 20px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    align-items: center; }
+  .profils-section .profil-card__img {
+    display: block;
+    width: 130px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 50%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
     @media screen and (min-width: 576px) {
-      .profils-section .profil-card {
-        width: 300px;
-        padding: 40px; } }
-    .profils-section .profil-card__img {
-      display: block;
-      width: 130px;
-      height: auto;
-      margin: 0 auto;
-      border-radius: 50%;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
-      @media screen and (min-width: 576px) {
-        .profils-section .profil-card__img {
-          width: 140px; } }
-    .profils-section .profil-card__name {
-      text-align: center;
-      font-size: 1.6em;
-      font-weight: bold;
-      margin-top: 10px;
-      margin-bottom: 15px; }
-      @media screen and (min-width: 576px) {
-        .profils-section .profil-card__name {
-          font-size: 1.7em; } }
-    .profils-section .profil-card__text {
-      width: 100%;
-      font-size: 1.1em;
-      margin: 3px 0;
-      text-align: center;
-      text-overflow: ellipsis;
-      overflow: hidden; }
-      @media screen and (min-width: 576px) {
-        .profils-section .profil-card__text {
-          font-size: 1.2em; } }
-    .profils-section .profil-card__link {
-      text-decoration: none;
-      font-weight: bold; }
-    .profils-section .profil-card__icon {
-      width: 40px;
-      height: auto;
-      margin: 0 auto;
-      margin-top: 25px;
-      transition: fill 0.3s linear; }
-      @media screen and (min-width: 576px) {
-        .profils-section .profil-card__icon {
-          width: 50px; } }
-      .profils-section .profil-card__icon:hover {
-        fill: #E74C3C;
-        cursor: pointer; }
-    .profils-section .profil-card:hover {
-      cursor: pointer;
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+      .profils-section .profil-card__img {
+        width: 140px; } }
+  .profils-section .profil-card__name {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 15px; }
+    @media screen and (min-width: 576px) {
+      .profils-section .profil-card__name {
+        font-size: 1.7em; } }
+  .profils-section .profil-card__text {
+    font-size: 1.1em;
+    margin: 3px 0;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+    @media screen and (min-width: 576px) {
+      .profils-section .profil-card__text {
+        font-size: 1.2em; } }
+  .profils-section .profil-card__link {
+    text-decoration: none;
+    font-weight: bold; }
+  .profils-section .profil-card:hover {
+    cursor: pointer;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  .profils-section .profil-card__btn {
+    width: 40px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 25px;
+    background: none;
+    border: none; }
+    @media screen and (min-width: 576px) {
+      .profils-section .profil-card__btn {
+        width: 50px; } }
+    .profils-section .profil-card__btn:hover {
+      cursor: pointer; }
+  .profils-section .profil-card__icon {
+    width: 100%;
+    height: auto;
+    transition: fill 0.3s linear; }
+    .profils-section .profil-card__icon:hover {
+      fill: #E74C3C;
+      cursor: pointer; }
 
 .result-section {
   align-items: center;
@@ -345,6 +366,7 @@
     width: 250px;
     margin-top: 40px;
     padding: 20px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
     @media screen and (min-width: 576px) {
       .result-section .card {
@@ -356,8 +378,10 @@
       justify-content: center;
       align-items: center; }
     .result-section .card__img {
+      display: block;
       width: 130px;
       height: auto;
+      margin: 0 auto;
       border-radius: 50%;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
       @media screen and (min-width: 576px) {
@@ -373,25 +397,36 @@
         .result-section .card__name {
           font-size: 1.7em; } }
     .result-section .card__text {
-      width: 100%;
       font-size: 1.1em;
       margin: 3px 0;
-      text-align: center; }
+      text-align: center;
+      text-overflow: ellipsis;
+      overflow: hidden; }
       @media screen and (min-width: 576px) {
         .result-section .card__text {
           font-size: 1.2em; } }
     .result-section .card__link {
       text-decoration: none;
       font-weight: bold; }
-    .result-section .card__icon {
+    .result-section .card:hover {
+      cursor: pointer;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+    .result-section .card__btn {
       width: 40px;
       height: auto;
       margin: 0 auto;
       margin-top: 25px;
-      transition: fill 0.3s linear; }
+      background: none;
+      border: none; }
       @media screen and (min-width: 576px) {
-        .result-section .card__icon {
+        .result-section .card__btn {
           width: 50px; } }
+      .result-section .card__btn:hover {
+        cursor: pointer; }
+    .result-section .card__icon {
+      width: 100%;
+      height: auto;
+      transition: fill 0.3s linear; }
       .result-section .card__icon:hover {
         fill: #E74C3C;
         cursor: pointer; }
@@ -417,6 +452,7 @@
         justify-content: flex-start; } }
   .result-section .repo {
     position: relative;
+    z-index: -1;
     display: flex;
     flex-direction: column;
     width: 250px;
@@ -469,12 +505,85 @@
   .result-section .repo-navigation {
     margin-bottom: 30px; }
     .result-section .repo-navigation__number {
-      font-size: 1.1em;
+      font-size: 1.2em;
       margin: 0 5px;
       cursor: pointer; }
       .result-section .repo-navigation__number--active {
-        font-size: 1.2em;
+        font-size: 1.3em;
         font-weight: bold; }
+
+.likes-section .like {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 250px;
+  margin-top: 40px;
+  padding: 20px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  @media screen and (min-width: 576px) {
+    .likes-section .like {
+      width: 300px;
+      padding: 40px; } }
+  .likes-section .like figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  .likes-section .like__img {
+    display: block;
+    width: 130px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+    @media screen and (min-width: 576px) {
+      .likes-section .like__img {
+        width: 140px; } }
+  .likes-section .like__name {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 15px; }
+    @media screen and (min-width: 576px) {
+      .likes-section .like__name {
+        font-size: 1.7em; } }
+  .likes-section .like__text {
+    font-size: 1.1em;
+    margin: 3px 0;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+    @media screen and (min-width: 576px) {
+      .likes-section .like__text {
+        font-size: 1.2em; } }
+  .likes-section .like__link {
+    text-decoration: none;
+    font-weight: bold; }
+  .likes-section .like:hover {
+    cursor: pointer;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  .likes-section .like__btn {
+    width: 40px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 25px;
+    background: none;
+    border: none; }
+    @media screen and (min-width: 576px) {
+      .likes-section .like__btn {
+        width: 50px; } }
+    .likes-section .like__btn:hover {
+      cursor: pointer; }
+  .likes-section .like__icon {
+    width: 100%;
+    height: auto;
+    transition: fill 0.3s linear; }
+    .likes-section .like__icon:hover {
+      fill: #E74C3C;
+      cursor: pointer; }
 
 @-webkit-keyframes loading-animation {
   from {

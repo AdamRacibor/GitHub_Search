@@ -9,7 +9,9 @@ export const elements = {
     repos: document.querySelector('#repos'),
     repoNav: document.querySelector('#repoNav'),
     likesTile: document.querySelector('#likesTile'),
+    likeCards: document.querySelector('#likeCards'),
     likesNavButton: document.querySelector('#likesNavButton'),
     closeLikesBtn: document.querySelector('#closeLikesBtn'),
     likeList: document.querySelector('#likeList'),
+    moreBtn: document.querySelector('#moreBtn'),
 };

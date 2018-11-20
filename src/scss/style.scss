@@ -7,24 +7,27 @@ $tablet_breakpoint: 768px;
 $phone_breakpoint: 576px;
 
 @mixin phone {
-  @media screen and (min-width: #{$phone_breakpoint}) {
-    @content;
-  }
+    @media screen and (min-width: #{$phone_breakpoint}) {
+        @content;
+    }
 }
+
 @mixin tablet {
-  @media screen and (min-width: #{$tablet_breakpoint}) {
-    @content;
-  }
+    @media screen and (min-width: #{$tablet_breakpoint}) {
+        @content;
+    }
 }
+
 @mixin desktop {
-  @media screen and (min-width: #{$desktop_breakpoint}) {
-    @content;
-  }
+    @media screen and (min-width: #{$desktop_breakpoint}) {
+        @content;
+    }
 }
+
 @mixin large-desktop {
-  @media screen and (min-width: #{$large_desktop_breakpoint}) {
-    @content;
-  }
+    @media screen and (min-width: #{$large_desktop_breakpoint}) {
+        @content;
+    }
 }
 
 %button-style {
@@ -38,14 +41,136 @@ $phone_breakpoint: 576px;
     font-size: 1em;
     cursor: pointer;
     border-radius: 10px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+
     &:hover {
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     }
+
     @include tablet {
         width: 180px;
         height: 45px;
+    }
+}
+
+%section-style {
+    flex-direction: column;
+    padding: 40px 0;
+}
+
+%heading-style {
+    font-size: 1.7em;
+    text-align: center;
+}
+
+%row-style {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    @include tablet {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+}
+
+@mixin card-style() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+    margin-top: 40px;
+    padding: 20px;
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+    @include phone {
+        width: 300px;
+        padding: 40px;
+    }
+
+    figure {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__img {
+        display: block;
+        width: 130px;
+        height: auto;
+        margin: 0 auto;
+        border-radius: 50%;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+        @include phone {
+            width: 140px;
+        }
+    }
+
+    &__name {
+        text-align: center;
+        font-size: 1.6em;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 15px;
+
+        @include phone {
+            font-size: 1.7em;
+        }
+    }
+
+    &__text {
+        font-size: 1.1em;
+        margin: 3px 0;
+        text-align: center;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        @include phone {
+            font-size: 1.2em;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+
+    &__btn {
+        width: 40px;
+        height: auto;
+        margin: 0 auto;
+        margin-top: 25px;
+        background: none;
+        border: none;
+        @include phone {
+            width: 50px;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__icon {
+        width: 100%;
+        height: auto;
+        transition: fill 0.3s linear;
+        &:hover {
+            fill: #E74C3C;
+            cursor: pointer;
+        }
     }
 }
 
@@ -72,13 +197,16 @@ $phone_breakpoint: 576px;
 .container {
     width: 100%;
     padding: 0 30px;
+
     @include phone {
         padding: 0 60px;
     }
+
     @include tablet {
         width: 700px;
         margin: 0 auto;
     }
+
     @include large-desktop {
         width: 1200px;
     }
@@ -89,9 +217,11 @@ $phone_breakpoint: 576px;
     position: fixed;
     width: 100%;
     padding: 20px 10px;
+
     @include desktop {
         padding: 20px 30px;
     }
+
     .back-btn {
         width: 40px;
         height: 40px;
@@ -100,11 +230,13 @@ $phone_breakpoint: 576px;
         border-radius: 50%;
         padding: 10px;
         cursor: pointer;
+
         &__icon {
             width: 10px;
             height: auto;
         }
     }
+
     .like-btn {
         position: absolute;
         right: 10px;
@@ -113,10 +245,12 @@ $phone_breakpoint: 576px;
         background: none;
         border: none;
         cursor: pointer;
+
         @include desktop {
             top: 20px;
             right: 30px;
         }
+
         .like-btn__icon {
             fill: #E74C3C;
         }
@@ -133,25 +267,37 @@ $phone_breakpoint: 576px;
     padding: 40px 30px;
     padding-bottom: 80px;
     background-color: #ffffff;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
     @include desktop {
         width: 400px;
         right: 0;
     }
+
     .close-btn {
         width: 20px;
         align-self: flex-end;
         background: none;
         border: none;
         cursor: pointer;
+
         &__icon {
             width: 20px;
         }
     }
+
     &__text {
         text-align: center;
         font-size: 1.1em;
     }
+
+    &__msg {
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        font-size: 1.2em;
+    }
+
     .small-account {
         display: flex;
         align-items: center;
@@ -159,38 +305,45 @@ $phone_breakpoint: 576px;
         width: 100%;
         margin-top: 20px;
         padding: 15px 20px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+
         @include phone {
             width: 400px;
             margin-left: auto;
             margin-right: auto;
         }
+
         @include desktop {
             width: 100%;
         }
+
         &__info {
             display: flex;
             justify-content: flex-start;
             align-items: center;
         }
+
         &__avatar {
             width: 60px;
             height: auto;
             border-radius: 50%;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         }
+
         &__name {
             margin-left: 15px;
             font-size: 1.2em;
             font-weight: bold;
             cursor: pointer;
         }
+
         &:hover {
             cursor: pointer;
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
         }
     }
+
     &__btn-more {
         @extend %button-style;
         margin-bottom: 0;
@@ -203,66 +356,83 @@ $phone_breakpoint: 576px;
     align-items: center;
     min-height: 100vh;
     width: 100%;
+
     .logo {
         width: 100%;
+
         &__img {
             width: 100%;
             height: auto;
         }
+
         @include large-desktop {
             width: 800px;
             margin: 0 auto;
         }
     }
+
     .row {
         display: flex;
         justify-content: center;
         align-items: center;
         margin-top: 10px;
+
         @include phone {
             justify-content: space-around;
         }
+
         @include desktop {
             margin-top: 5px;
         }
+
         @include large-desktop {
             justify-content: center;
         }
+
         .cats-img {
             width: 65px;
             margin: 0 5px;
+
             @include phone {
                 width: 100px;
                 margin: 0;
             }
+
             @include tablet {
                 width: 120px;
             }
+
             @include large-desktop {
                 width: 130px;
                 margin: 0 10px;
             }
         }
     }
+
     &__text {
         line-height: 1.4em;
         font-size: 1.1em;
         text-align: center;
         margin-top: 40px;
+
         @include phone {
             font-size: 1.2em;
         }
+
         @include tablet {
             font-size: 1.3em;
         }
+
         @include desktop {
             margin: 60px 0;
             font-size: 1.35em;
         }
+
         @include large-desktop {
             padding: 0 20px;
         }
     }
+
     &__btn {
         @extend %button-style;
     }
@@ -273,6 +443,7 @@ $phone_breakpoint: 576px;
     align-items: center;
     width: 100%;
     height: 100vh;
+
     &__img {
         width: 120px;
         height: auto;
@@ -288,20 +459,24 @@ $phone_breakpoint: 576px;
     align-items: center;
     flex-direction: column;
     min-height: 100vh;
+
     .form {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         margin-top: 20px;
+
         &__label {
             text-align: center;
             font-size: 1.5em;
             font-weight: bold;
+
             @include phone {
                 font-size: 2em;
             }
         }
+
         &__input {
             width: 100%;
             height: 35px;
@@ -310,11 +485,13 @@ $phone_breakpoint: 576px;
             background: none;
             margin-top: 20px;
             border: 1px solid #000000;
+
             @include phone {
                 width: 400px;
                 height: 40px;
             }
         }
+
         &__btn {
             @extend %button-style;
             margin-bottom: 0;
@@ -323,160 +500,36 @@ $phone_breakpoint: 576px;
 }
 
 .profils-section {
-    flex-direction: column;
-    padding: 40px 0;
+    @extend %section-style;
+
     &__heading {
-        font-size: 1.7em;
-        text-align: center;
+        @extend %heading-style;
     }
+
     .row {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        @include tablet {
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-items: flex-start;
-        }
+        @extend %row-style;
     }
+
     .profil-card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 250px;
-        margin-top: 40px;
-        padding: 20px;
-        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        @include phone {
-            width: 300px;
-            padding: 40px;
-        }
-        &__img {
-            display: block;
-            width: 130px;
-            height: auto;
-            margin: 0 auto;
-            border-radius: 50%;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            @include phone {
-                width: 140px;
-            }
-        }
-        &__name {
-            text-align: center;
-            font-size: 1.6em;
-            font-weight: bold;
-            margin-top: 10px;
-            margin-bottom: 15px;
-            @include phone {
-                font-size: 1.7em;
-            }
-        }
-        &__text {
-            font-size: 1.1em;
-            margin: 3px 0;
-            text-align: center;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            @include phone {
-                font-size: 1.2em;
-            }
-        }
-        &__link {
-            text-decoration: none;
-            font-weight: bold;
-        }
-        &:hover {
-            cursor: pointer;
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-        }
+        @include card-style;
     }
 }
 
 .result-section {
     align-items: center;
     flex-direction: column;
+
     .card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 250px;
-        margin-top: 40px;
-        padding: 20px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        @include phone {
-            width: 300px;
-            padding: 40px;
-        }
-        figure {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        &__img {
-            width: 130px;
-            height: auto;
-            border-radius: 50%;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            @include phone {
-                width: 140px;
-            }
-        }
-        &__name {
-            text-align: center;
-            font-size: 1.6em;
-            font-weight: bold;
-            margin-top: 10px;
-            margin-bottom: 15px;
-            @include phone {
-                font-size: 1.7em;
-            }
-        }
-        &__text {
-            font-size: 1.1em;
-            margin: 3px 0;
-            text-align: center;
-            @include phone {
-                font-size: 1.2em;
-            }
-        }
-        &__link {
-            text-decoration: none;
-            font-weight: bold;
-        }
-        &__btn {
-            width: 40px;
-            height: auto;
-            margin: 0 auto;
-            margin-top: 25px;
-            background: none;
-            border: none;
-            @include phone {
-                width: 50px;
-            }
-        }
-        &__icon {
-            width: 100%;
-            height: auto;
-            transition: fill 0.3s linear;
-            &:hover {
-                fill: #E74C3C;
-                cursor: pointer;
-            }
-        }
+        @include card-style;
     }
+
     &__heading {
         font-size: 1.7em;
         text-align: center;
         margin-top: 50px;
         margin-bottom: 10px;
     }
+
     .repo-wrapper {
         width: 100%;
         display: flex;
@@ -484,15 +537,18 @@ $phone_breakpoint: 576px;
         align-items: center;
         flex-direction: column;
         margin-bottom: 30px;
+
         @include phone {
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
         }
+
         @include tablet {
             justify-content: flex-start;
         }
     }
+
     .repo {
         position: relative;
         z-index: -1;
@@ -505,11 +561,13 @@ $phone_breakpoint: 576px;
         font-size: 1.1em;
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
         @include phone {
             margin-left: 10px;
             margin-right: 10px;
         }
+
         &__title {
             width: 100%;
             height: 10%;
@@ -518,10 +576,12 @@ $phone_breakpoint: 576px;
             overflow: hidden;
             text-overflow: ellipsis;
         }
+
         &__tech {
             width: 100%;
             height: 10%;
         }
+
         &__desc {
             width: 200px;
             height: 60%;
@@ -529,6 +589,7 @@ $phone_breakpoint: 576px;
             font-size: 0.85em;
             word-break: break-word;
         }
+
         &__link {
             display: flex;
             justify-content: center;
@@ -543,32 +604,54 @@ $phone_breakpoint: 576px;
             border-bottom-left-radius: 15px;
             border-bottom-right-radius: 15px;
             background-color: $button-color;
-            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
             &:hover {
                 cursor: pointer;
-                box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+                box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
             }
         }
     }
+
     .repo-navigation {
         margin-bottom: 30px;
+
         &__number {
-            font-size: 1.1em;
+            font-size: 1.2em;
             margin: 0 5px;
             cursor: pointer;
+
             &--active {
-                font-size: 1.2em;
+                font-size: 1.3em;
                 font-weight: bold;
             }
         }
     }
 }
 
+.likes-section {
+    @extend %section-style;
+
+    &__heading {
+        @extend %heading-style;
+    }
+
+    .row {
+        @extend %row-style;
+    }
+
+    .like {
+        @include card-style;
+    }
+}
+
 @keyframes loading-animation {
     from {
         transform: rotate(0deg);
-    } to {
+    }
+
+    to {
         transform: rotate(-360deg);
     }
 }

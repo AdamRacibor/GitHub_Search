@@ -1,8 +1,8 @@
 import { elements } from './base';
 
-const generateCard = (data, cardID) => {
+const generateCard = (data) => {
     const cardTemplat = `
-    <div class="profil-card info" data-cardID="${cardID}" data-githubID="${data.id}">
+    <div class="profil-card info" data-githubID="${data.id}">
         <figure>
             <img class="profil-card__img" src="${data.avatar_url}" alt="">
             <figcaption class="profil-card__name">${data.login}</figcaption>
@@ -15,6 +15,6 @@ const generateCard = (data, cardID) => {
     return cardTemplat;
 };
 
-export const showCard = (data, cardID) => {
-    elements.profilsCards.insertAdjacentHTML('beforeend', generateCard(data, cardID));
+export const showCard = (data) => {
+    elements.profilsCards.insertAdjacentHTML('beforeend', generateCard(data));
 }
