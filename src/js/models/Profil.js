@@ -7,12 +7,8 @@ export default class Profil {
     }
 
     async getRepo() {
-        try {
-            const result = await axios(`${this.link}?per_page=100`);
-            this.repos = result.data;
-        } catch (err) {
-            console.log(err);
-        }
+        const result = await axios(`${this.link}?per_page=100`);
+        this.repos = result.data;
     }
 
     reposCount() {

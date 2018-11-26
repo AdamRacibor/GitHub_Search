@@ -34,7 +34,7 @@ export default class Like {
     }
 
     getIndex(id) {
-        this.likesHis.findIndex((el) => {
+        return this.likesHis.findIndex((el) => {
             el.id == id;
         });
     }

@@ -50,7 +50,7 @@ const generateProfilRepos = (repo) => {
             <span class="repo__title">${repo.name}</span>
             <span class="repo__tech">${repo.language === null ? "Brak" : repo.language}</span>
             <p class="repo__desc">${repo.description === null ? "Brak opisu" : cutDescription(repo.description)}</p>
-            <a class="repo__link" href="${repo.html_url}" target="_blank">Link</a>
+            <a class="repo__link" href="${repo.html_url}" target="blank_">Link</a>
         </div>
     `;
     return reposCardTemplate;

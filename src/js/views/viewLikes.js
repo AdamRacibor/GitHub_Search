@@ -1,4 +1,4 @@
-import { elements } from './base';
+import {elements} from './base';
 
 const generateLike = (data) => {
     const cardTemplat = `
@@ -56,3 +56,25 @@ export const showMsg = () => {
     const msg = '<span class="likes__msg">Nie masz żadnych polubień</span>';
     elements.likeList.insertAdjacentHTML('beforeend', msg);
 };
+
+const addStatusText = (status) => {
+    elements.likeStatus.firstChild.textContent = status === 'add' ? 'Dodano do polubionych' : 'Usunięto z polubionych';
+};
+
+const removeStatusText = (status) => {
+    elements.likeStatus.firstChild.textContent = '';
+};
+
+export const setLikeStatus = async (status) => {
+    addStatusText(status);
+    elements.likeStatus.classList.remove('hidden');
+    elements.likeStatus.classList.add('flex');
+    elements.likeStatus.classList.add(`like-status--${status}`);
+
+    await setTimeout(() => {
+        elements.likeStatus.classList.remove('flex');
+        elements.likeStatus.classList.remove(`like-status--${status}`);
+        elements.likeStatus.classList.add('hidden');
+        removeStatusText(status);
+    }, 1500);
+}

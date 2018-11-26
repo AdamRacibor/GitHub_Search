@@ -71,6 +71,7 @@
 .nav {
   justify-content: space-between;
   position: fixed;
+  z-index: 10;
   width: 100%;
   padding: 20px 10px; }
   @media screen and (min-width: 992px) {
@@ -104,7 +105,7 @@
 
 .likes {
   flex-direction: column;
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   z-index: 20;
@@ -169,6 +170,29 @@
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
   .likes__btn-more {
     margin-bottom: 0; }
+
+.like-status {
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 30;
+  width: 100%;
+  height: 50px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  @media screen and (min-width: 992px) {
+    .like-status {
+      width: 300px;
+      right: 50px;
+      bottom: 50px; } }
+  .like-status__text {
+    color: #ffffff;
+    font-size: 1.1em; }
+  .like-status--add {
+    background-color: #2ECC71; }
+  .like-status--remove {
+    background-color: #E74C3C; }
 
 .header-section {
   flex-direction: column;
@@ -282,6 +306,12 @@
     .search-section .form__btn {
       margin-bottom: 0; }
 
+.profils-section__msg {
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 1.2em; }
+
 .profils-section .profil-card {
   display: flex;
   justify-content: center;
@@ -290,6 +320,7 @@
   width: 250px;
   margin-top: 40px;
   padding: 20px;
+  background-color: #ffffff;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
   @media screen and (min-width: 576px) {
@@ -366,6 +397,7 @@
     width: 250px;
     margin-top: 40px;
     padding: 20px;
+    background-color: #ffffff;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
     @media screen and (min-width: 576px) {
@@ -430,6 +462,9 @@
       .result-section .card__icon:hover {
         fill: #E74C3C;
         cursor: pointer; }
+    .result-section .card:hover {
+      cursor: default;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
   .result-section__heading {
     font-size: 1.7em;
     text-align: center;
@@ -452,7 +487,7 @@
         justify-content: flex-start; } }
   .result-section .repo {
     position: relative;
-    z-index: -1;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     width: 250px;
@@ -484,12 +519,13 @@
       font-size: 0.85em;
       word-break: break-word; }
     .result-section .repo__link {
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      left: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      position: absolute;
-      left: 0;
-      bottom: 0;
       width: 100%;
       height: 20%;
       color: #ffffff;
@@ -520,6 +556,7 @@
   width: 250px;
   margin-top: 40px;
   padding: 20px;
+  background-color: #ffffff;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
   @media screen and (min-width: 576px) {
@@ -584,6 +621,17 @@
     .likes-section .like__icon:hover {
       fill: #E74C3C;
       cursor: pointer; }
+
+.error-section {
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center; }
+  .error-section__text {
+    font-size: 1em; }
+    @media screen and (min-width: 768px) {
+      .error-section__text {
+        font-size: 1.3em; } }
 
 @-webkit-keyframes loading-animation {
   from {

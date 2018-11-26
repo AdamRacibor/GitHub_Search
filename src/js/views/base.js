@@ -13,5 +13,6 @@ export const elements = {
     likesNavButton: document.querySelector('#likesNavButton'),
     closeLikesBtn: document.querySelector('#closeLikesBtn'),
     likeList: document.querySelector('#likeList'),
+    likeStatus: document.querySelector('#likeStatus'),
     moreBtn: document.querySelector('#moreBtn'),
 };
