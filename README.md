@@ -11,4 +11,4 @@ GitHub search jest prostą stroną wykorzystującą GitHub Api. Dzięki niej w s
  - Node.js (10.15.0)
  - Babel (7.1.2)
  
- LIVE: [https://danroxx.github.io/GitHub_Search/dist/](https://danroxx.github.io/GitHub_Search/dist/)
+ LIVE: [https://adamracibor.github.io/GitHub_Search/dist/](https://adamracibor.github.io/GitHub_Search/dist/)
